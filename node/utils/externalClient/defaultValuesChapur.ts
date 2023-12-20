@@ -1,0 +1,19 @@
+// Default values for Chapur Token:
+const CHAPUR_TOKEN_BODY = {
+  STORE_ID: 7,
+}
+
+const CHAPUR_TOKEN_RESPONSE = {
+  TOKEN_EXPIRATION_TIME: 10,
+}
+
+// Default values for Chapur Payment:
+const CHAPUR_PAYMENT_BODY = {
+  ID_STORE: '7',
+  PASSWORD_PLATFORM: 'ECOMM1',
+  PLATFORM_ID: '1',
+  USER_PLATFORM: 'ECOMM',
+  DEFAULT_PAYMENT_TERM: 0,
+}
+
+export { CHAPUR_TOKEN_BODY, CHAPUR_TOKEN_RESPONSE, CHAPUR_PAYMENT_BODY }
