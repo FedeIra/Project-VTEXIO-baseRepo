@@ -2,11 +2,7 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { JanusClient } from '@vtex/api'
 
-import {
-  // VTEX_AUTH_COOKIE,
-  VTEX_APP_KEY,
-  VTEX_APP_TOKEN,
-} from '../../packages/vtexClientPackages/variablesVtex'
+import { VtexVariables } from '../../packages/index'
 import {
   getVtexOrderForm,
   savePaymentMasterData,
@@ -30,9 +26,9 @@ export default class VtexClient extends JanusClient {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         'X-Vtex-Use-Https': 'true',
-        'X-VTEX-API-AppKey': VTEX_APP_KEY,
-        'X-VTEX-API-AppToken': VTEX_APP_TOKEN,
-        // VtexIdclientAutCookie: VTEX_AUTH_COOKIE,
+        'X-VTEX-API-AppKey': VtexVariables.VTEX_APP_KEY,
+        'X-VTEX-API-AppToken': VtexVariables.VTEX_APP_TOKEN,
+        // VtexIdclientAutCookie: VtexVariables.VTEX_AUTH_COOKIE,
       },
     })
   }

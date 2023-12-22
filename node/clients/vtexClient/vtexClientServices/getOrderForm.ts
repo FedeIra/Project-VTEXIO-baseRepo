@@ -5,7 +5,7 @@ import type {
   OrderFormVtexResponse,
   OrderFormEmailResponse,
 } from '../../../typings/index'
-import { VTEX_ORDER_FORM_URL } from '../../../packages/vtexClientPackages/variablesVtex'
+import { VtexVariables } from '../../../packages/index'
 import { validateClientResponse } from '../../../utils/index'
 import { OrderFormEmailResponseSchema } from '../../../schemasValidation/index'
 
@@ -15,7 +15,7 @@ export async function getVtexOrderForm(
 ): Promise<OrderFormEmailResponse> {
   // 1) Obtain order form from VTEX:
   const vtexResponse: OrderFormVtexResponse = await this.http.get(
-    `${VTEX_ORDER_FORM_URL}${id}`,
+    `${VtexVariables.VTEX_ORDER_FORM_URL}${id}`,
     {
       metric: 'order-form-get',
     }

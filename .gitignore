@@ -55,5 +55,9 @@ jsconfig.json
 
 **/yarn-error.log
 
-# Ignore all documents from packages:
-node/packages
+# Ignore all documents from packages directory except index.ts:
+node/packages/externalClientPackages/*
+node/packages/externalClient2Packages/*
+node/packages/generalPackages/*
+node/packages/vtexClientPackages/*
+

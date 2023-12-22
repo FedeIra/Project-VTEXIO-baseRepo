@@ -2,7 +2,7 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
-import { CLIENT_BASE_URL } from '../../packages/externalClientPackages/variablesExternalClient'
+import { ExternalClientVariables } from '../../packages/index'
 import { getAccessToken, createPayment } from './externalClientServices/index'
 import type {
   CreatePaymentChapurBody,
@@ -13,7 +13,7 @@ export default class ExternalClientExample extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     super(
       // If you want to use global variables set from administrator panel: context.settings.externalEndpoint ??
-      /* context.settings.externalEndpoint ??  */ CLIENT_BASE_URL,
+      /* context.settings.externalEndpoint ??  */ ExternalClientVariables.CLIENT_BASE_URL,
       context,
       {
         ...options,

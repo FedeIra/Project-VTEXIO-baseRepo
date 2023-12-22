@@ -2,7 +2,7 @@
 import type { JanusClient } from '@vtex/api'
 
 import type { SavedPaymentVtexResponse } from '../../../typings/index'
-import { VTEX_MASTER_DATA_URL } from '../../../packages/vtexClientPackages/variablesVtex'
+import { VtexVariables } from '../../../packages/index'
 import { validateClientResponse } from '../../../utils/index'
 import { SavedPaymentVtexResponseSchema } from '../../../schemasValidation/index'
 
@@ -12,7 +12,7 @@ export async function searchSavedPayment(
 ): Promise<SavedPaymentVtexResponse> {
   // 1) Obtain saved payment from VTEX master data:
   const vtexResponse: SavedPaymentVtexResponse = await this.http.get(
-    `${VTEX_MASTER_DATA_URL}/${id}?_fields=paymentId,authorizationId,orderId,appName,nsu,tid,acquirer,code,message,delayToAutoSettle,delayToAutoSettleAfterAntifraud,delayToCancel,callbackUrl,email,processing,errorCause`,
+    `${VtexVariables.VTEX_MASTER_DATA_URL}/${id}?_fields=paymentId,authorizationId,orderId,appName,nsu,tid,acquirer,code,message,delayToAutoSettle,delayToAutoSettleAfterAntifraud,delayToCancel,callbackUrl,email,processing,errorCause`,
     {
       metric: 'masterdata-get',
     }

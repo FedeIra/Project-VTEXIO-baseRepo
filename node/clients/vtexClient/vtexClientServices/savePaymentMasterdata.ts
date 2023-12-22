@@ -2,7 +2,7 @@
 import type { JanusClient } from '@vtex/api'
 
 import type { SavedPaymentBody } from '../../../typings/index'
-import { VTEX_MASTER_DATA_URL } from '../../../packages/vtexClientPackages/variablesVtex'
+import { VtexVariables } from '../../../packages/index'
 
 export async function savePaymentMasterData(
   this: JanusClient,
@@ -10,7 +10,7 @@ export async function savePaymentMasterData(
   body: SavedPaymentBody
 ): Promise<void> {
   // 1) Obtain saved payment from VTEX master data:
-  await this.http.put(`${VTEX_MASTER_DATA_URL}/${id}`, body, {
+  await this.http.put(`${VtexVariables.VTEX_MASTER_DATA_URL}/${id}`, body, {
     metric: 'vtex-save-payment',
   })
 }

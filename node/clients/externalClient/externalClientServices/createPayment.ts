@@ -6,7 +6,7 @@ import type {
   CreatePaymentChapurResponse,
 } from '../../../typings/index'
 import { getAccessToken } from './index'
-import { CLIENT_EXAMPLE_URL2 } from '../../../packages/externalClientPackages/variablesExternalClient'
+import { ExternalClientVariables } from '../../../packages/index'
 import { validateClientResponse } from '../../../utils/index'
 import { ChapurPaymentResponseSchema } from '../../../schemasValidation/index'
 
@@ -19,7 +19,7 @@ export async function createPayment(
 
   // 2) Create payment in Chapur:
   const chapurResponse: CreatePaymentChapurResponse = await this.http.post(
-    CLIENT_EXAMPLE_URL2,
+    ExternalClientVariables.CLIENT_EXAMPLE_URL2,
     body,
     {
       headers: {
