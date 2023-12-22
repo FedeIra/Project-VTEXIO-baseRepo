@@ -6,6 +6,7 @@ import type {
   CreatePaymentChapurResponse,
   OrderFormEmailResponse,
   SavedPaymentVtexResponse,
+  UniversityClientResponse,
 } from '../../typings/index'
 
 export const validateClientResponse = (
@@ -14,8 +15,9 @@ export const validateClientResponse = (
     | GetAccessTokenChapurResponse
     | CreatePaymentChapurResponse
     | OrderFormEmailResponse
-    | SavedPaymentVtexResponse,
-  schema: Joi.ObjectSchema
+    | SavedPaymentVtexResponse
+    | UniversityClientResponse[],
+  schema: Joi.ObjectSchema | Joi.ArraySchema
 ) => {
   const validationResult = schema.validate(data, { abortEarly: false })
 

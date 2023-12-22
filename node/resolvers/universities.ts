@@ -1,42 +1,41 @@
-interface Args {
-  country: string
-}
-
-interface University {
-  name: string
-  domains: [string]
-  state_province: string | undefined
-  web_pages: [string]
-  country: string
-  alpha_two_code: string
-  'state-province'?: string
-}
+import type {
+  Args,
+  UniversityClientResponse,
+  UniversityFinalResponse,
+} from '../typings/index'
 
 export async function getUniversitiesResolver(
   _: unknown,
   { country }: Args,
-  ctx: Context
-) {
-  const {
-    clients: { getUniversities },
-    vtex: { logger },
-  } = ctx
+  { clients: { getUniversities }, vtex: { logger } }: Context
+): Promise<UniversityFinalResponse[]> {
+  try {
+    // 1) Use get universities client to obtain universities:
+    const universitiesClientResponse: UniversityClientResponse[] =
+      await getUniversities.getUniversities(country)
 
-  const universities: University[] = await getUniversities.getUniversities(
-    country
-  )
+    logger.info(
+      JSON.stringify({
+        message: 'Universities',
+        universitiesClientResponse,
+      })
+    )
 
-  logger.info(
-    JSON.stringify({
-      message: 'Universities',
-      universities,
-    })
-  )
+    // 2) Format response to obtain final response:
+    const universitiesResponse: UniversityFinalResponse[] =
+      universitiesClientResponse.map(
+        (university: UniversityClientResponse) => ({
+          ...university,
+          state_province: university['state-province'],
+        })
+      )
 
-  return universities.map((university: University) => {
-    university.state_province = university['state-province']
-    delete university['state-province']
-
-    return university
-  })
+    // 3) Return final response:
+    return universitiesResponse
+  } catch (error) {
+    logger.error(
+      JSON.stringify({ message: error.message, path: error.path, error })
+    )
+    throw new Error(error)
+  }
 }
