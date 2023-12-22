@@ -45,10 +45,3 @@ interface ModelStateChapur {
   additionalProp2?: string[]
   additionalProp3?: string[]
 }
-
-// CreatePayment SQL error response from Chapur:
-export interface ChapurSqlErrorResponse {
-  messages: string
-  internalError: string
-  isSuccess: boolean
-}

@@ -49,6 +49,7 @@ declare global {
 // Service instantiation:
 export default new Service({
   clients,
+  // Custom routes API REST:
   routes: {
     exampleService: method({
       POST: [
@@ -59,6 +60,7 @@ export default new Service({
       ],
     }),
   },
+  // Custom routes API GraphQL:
   graphql: {
     resolvers: {
       Query: {

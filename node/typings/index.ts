@@ -21,6 +21,12 @@ import {
   CreatePaymentChapurBody,
   CreatePaymentChapurResponse,
 } from './externalClient/createPaymentTypes'
+// External client 2 types:
+import {
+  Args,
+  UniversityClientResponse,
+  UniversityFinalResponse,
+} from './externalClient2/universityClientTypes'
 
 export {
   CreatePaymentAppBody,
@@ -33,4 +39,7 @@ export {
   GetAccessTokenChapurResponse,
   CreatePaymentChapurBody,
   CreatePaymentChapurResponse,
+  Args,
+  UniversityClientResponse,
+  UniversityFinalResponse,
 }

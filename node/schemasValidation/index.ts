@@ -4,6 +4,7 @@ import { SavedPaymentVtexResponseSchema } from './vtexClientSchemas/savedPayment
 import { ChapurAccessTokenResponseSchema } from './externalClientSchemas/accessTokenResponseSchema'
 import { CreatePaymentBodySchema } from './generalSchemas/createPaymentAppBodySchema'
 import { ChapurPaymentResponseSchema } from './externalClientSchemas/paymentResponseSchema'
+import { GetUniversityResponseSchema } from './externalClient2Schemas/getUniversitiesResponseSchema'
 
 export {
   OrderFormEmailResponseSchema,
@@ -11,4 +12,5 @@ export {
   ChapurAccessTokenResponseSchema,
   CreatePaymentBodySchema,
   ChapurPaymentResponseSchema,
+  GetUniversityResponseSchema,
 }
