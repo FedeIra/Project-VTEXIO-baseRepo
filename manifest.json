@@ -9,6 +9,7 @@
   "dependencies": {},
   "builders": {
     "node": "6.x",
+    "graphql": "1.x",
     "docs": "0.x"
   },
   "scripts": {
@@ -36,7 +37,24 @@
         "host": "*.myvtex.com",
         "path": "/_v/*"
       }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "universities.hipolabs.com",
+        "path": "/*"
+      }
     }
   ],
-  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
+  "settingsSchema": {
+    "title": "Payment Provider Middleware Panel Administrator",
+    "type": "object",
+    "properties": {
+      "externalEndpoint": {
+        "title": "External Endpoint",
+        "type": "string"
+      }
+    }
+  }
 }

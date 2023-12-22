@@ -11,13 +11,18 @@ import type {
 
 export default class ExternalClientExample extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super(CLIENT_BASE_URL, context, {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-vtex-use-https': 'true',
-      },
-    })
+    super(
+      // If you want to use global variables set from administrator panel: context.settings.externalEndpoint ??
+      /* context.settings.externalEndpoint ??  */ CLIENT_BASE_URL,
+      context,
+      {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          'x-vtex-use-https': 'true',
+        },
+      }
+    )
   }
 
   // Service to obtain access-token from Chapur to use Chapur services:

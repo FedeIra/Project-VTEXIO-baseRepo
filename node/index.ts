@@ -8,6 +8,7 @@ import type { CreatePaymentAppBody } from './typings/index'
 import { Clients } from './clients'
 import { middlewaresServiceExample } from './middlewares/exampleServices/index'
 import { middlewaresGeneral } from './middlewares/general/index'
+import { getUniversitiesResolver } from './resolvers/universities'
 
 const { cronFilter, errorHandler, validateRequestBody } = middlewaresGeneral
 
@@ -37,7 +38,11 @@ const clients: ClientsConfig<Clients> = {
 declare global {
   type Context = ServiceContext<Clients, State>
   interface State extends RecorderState {
-    bodyVtex: CreatePaymentAppBody
+    bodyVtex?: CreatePaymentAppBody
+    // If you want to use global variables set from administrator panel:
+    // appSettings: {
+    //   externalEndpoint?: string
+    // }
   }
 }
 
@@ -53,5 +58,12 @@ export default new Service({
         createPaymentChapur,
       ],
     }),
+  },
+  graphql: {
+    resolvers: {
+      Query: {
+        getUniversitiesResolver,
+      },
+    },
   },
 })

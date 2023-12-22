@@ -1,0 +1,12 @@
+type University {
+  name: String
+  domains: [String]
+  state_province: String
+  web_pages: [String]
+  country: String
+  alpha_two_code: String
+}
+
+type Query {
+  getUniversitiesResolver(country: String!): [University]
+}

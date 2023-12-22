@@ -3,6 +3,7 @@ import { IOClients } from '@vtex/api'
 
 import VtexClient from './vtexClient/vtexClient'
 import ChapurPaymentClient from './externalClient/chapurPaymentClient'
+import UniversitiesClient from './externalClient2/universitiesClient'
 
 export class Clients extends IOClients {
   public get getVtexOrderForm() {
@@ -27,5 +28,9 @@ export class Clients extends IOClients {
 
   public get createChapurPayment() {
     return this.getOrSet('createChapurPayment', ChapurPaymentClient)
+  }
+
+  public get getUniversities() {
+    return this.getOrSet('getUniversities', UniversitiesClient)
   }
 }

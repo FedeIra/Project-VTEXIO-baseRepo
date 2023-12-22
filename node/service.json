@@ -9,6 +9,10 @@
     "exampleService": {
       "path": "/example-path",
       "public": true
+    },
+    "universities": {
+      "path": "/universities/:country",
+      "public": true
     }
   }
 }
