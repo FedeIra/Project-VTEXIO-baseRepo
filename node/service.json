@@ -9,10 +9,12 @@
     "exampleService": {
       "path": "/example-path",
       "public": true
-    },
-    "universities": {
-      "path": "/universities/:country",
-      "public": true
+    }
+  },
+  "events": {
+    "orderHook": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["order-created", "payment-accepted", "canceled", "-"]
     }
   }
 }

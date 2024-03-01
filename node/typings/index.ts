@@ -27,6 +27,11 @@ import {
   UniversityClientResponse,
   UniversityFinalResponse,
 } from './externalClient2/universityClientTypes'
+// AWS client types:
+import {
+  OrderMessage,
+  SendMessageToQueueResponse,
+} from './awsClient/orderMessage'
 
 export {
   CreatePaymentAppBody,
@@ -42,4 +47,6 @@ export {
   Args,
   UniversityClientResponse,
   UniversityFinalResponse,
+  OrderMessage,
+  SendMessageToQueueResponse,
 }

@@ -4,6 +4,7 @@ import { IOClients } from '@vtex/api'
 import VtexClient from './vtexClient/vtexClient'
 import ChapurPaymentClient from './externalClient/chapurPaymentClient'
 import UniversitiesClient from './externalClient2/universitiesClient'
+import AWSClient from './AWSClient/awsClient'
 
 export class Clients extends IOClients {
   public get getVtexOrderForm() {
@@ -32,5 +33,9 @@ export class Clients extends IOClients {
 
   public get getUniversities() {
     return this.getOrSet('getUniversities', UniversitiesClient)
+  }
+
+  public get sendMessageToAWS() {
+    return this.getOrSet('sendMessageToQueue', AWSClient)
   }
 }

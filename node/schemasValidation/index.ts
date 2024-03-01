@@ -5,6 +5,7 @@ import { ChapurAccessTokenResponseSchema } from './externalClientSchemas/accessT
 import { CreatePaymentBodySchema } from './generalSchemas/createPaymentAppBodySchema'
 import { ChapurPaymentResponseSchema } from './externalClientSchemas/paymentResponseSchema'
 import { GetUniversityResponseSchema } from './externalClient2Schemas/getUniversitiesResponseSchema'
+import { OrderMessageSchema } from './awsClientSchemas/orderMessageSchema'
 
 export {
   OrderFormEmailResponseSchema,
@@ -13,4 +14,5 @@ export {
   CreatePaymentBodySchema,
   ChapurPaymentResponseSchema,
   GetUniversityResponseSchema,
+  OrderMessageSchema,
 }

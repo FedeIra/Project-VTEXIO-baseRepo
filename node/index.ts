@@ -1,5 +1,10 @@
 // External packages:
-import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
+import type {
+  ClientsConfig,
+  ServiceContext,
+  RecorderState,
+  EventContext,
+} from '@vtex/api'
 import { LRUCache, method, Service } from '@vtex/api'
 
 // Typings:
@@ -12,7 +17,7 @@ import { getUniversitiesResolver } from './resolvers/universities'
 
 const { cronFilter, errorHandler, validateRequestBody } = middlewaresGeneral
 
-const { createPaymentChapur } = middlewaresServiceExample
+const { createPaymentChapur, orderHook } = middlewaresServiceExample
 
 // Cache configuration:
 const TIMEOUT_MS = 30000
@@ -44,6 +49,17 @@ declare global {
     //   externalEndpoint?: string
     // }
   }
+  interface StatusChangeContext extends EventContext<Clients> {
+    // event payload body
+    body: {
+      domain: string
+      orderId: string
+      currentState: string
+      lastState: string
+      currentChangeDate: string
+      lastChangeDate: string
+    }
+  }
 }
 
 // Service instantiation:
@@ -67,5 +83,9 @@ export default new Service({
         getUniversitiesResolver,
       },
     },
+  },
+  // Events and triggers:
+  events: {
+    orderHook,
   },
 })
